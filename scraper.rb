@@ -21,3 +21,10 @@ html_products.each do |html_product|
     pokemon_products << pokemon_product
 end
 
+csv_headers = ["url", "image", "name", "price"]
+CSV.open("output.csv", "wb", write_headers: true, headers: csv_headers) do |csv|
+    pokemon_products.each do |pokemon_product|
+        csv << pokemon_product
+    end
+end
+
